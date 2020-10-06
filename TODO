@@ -1,0 +1,40 @@
+ClientSide:
+☐  botón para eliminar opción @critical
+☐  botón para resetear todo @critical
+☐  validar que si es una sola variable no hay prioridades @critical
+☐  opción de volver atrás en los pasos y resetear el paso @critical
+✔  manejo de pasos y display @critical @done(20-05-30 12:34)
+✔ validar que ninguna opción se cargue en blanco @high @done(20-06-07 22:14)
+✔ validar que ninguna opción se cargue en blanco @high @done(20-06-07 23:45)
+☐  validar que se cargue bien la matriz @low
+☐  botón para exportar resultados @low
+☐  time loading sensation @low
+☐  pantalla completa y responsive @low
+  
+Calculator:
+
+Done:
+  ✔ Press Alt+D to mark a todo as done
+  ✔ Press it again to undo the action
+Cancelled:
+  ✘ Press Alt+C to mark a todo as cancelled @cancelled(20-05-30 01:17)
+  ✘ Press it again to undo the action
+Timekeeping:
+  ✔ Completed todos can show a timestamp @done(17-11-03 10:42)
+  ☐ Press Alt+S to mark a todo as started @started(17-11-03 10:42)
+  ✔ Now it will show the elapsed time @started(17-11-03 10:42) @done(17-11-03 20:11) @lasted(9h29m)
+  ☐ You can provide time estimates for your todos @1h30m
+  ☐ We are even doing some natural language processing @est(1 day and 20 minutes)
+Formatting:
+  You can format text in a markdown-like fashion
+  Bold:
+    ☐ Use asterisks for *bold*
+  Italic:
+    ☐ Use underscores for _italic_
+  Strikethrough:
+    ☐ Use tildes for ~strikethrough~
+  Code:
+    ☐ Use backticks for `code`
+Archive:
+  ✔ You can archive finished todos here
+  ✔ Congratulations, you are now a Todo+ master!

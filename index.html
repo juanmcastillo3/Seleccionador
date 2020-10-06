@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionador</title>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+
+    <!-- UIkit JS -->
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/clientSide.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/validator.js"></script>
+</head>
+
+<body onload="setInitialVisibility()">
+    <div class="uk-tile uk-tile-secondary uk-padding-remove uk-text-center">
+        <p class="uk-h1">Seleccionador</p>
+    </div>
+    <div class="uk-card uk-card-secondary uk-card-body">
+        <p class="uk-text-success">
+            El seleccionador es una interfáz que va a ayudar a tomar decisiones complejas de una forma sencilla.
+            Lo único que tenés que hacer es seguir las instrucciones de cada paso y verás el resultado.
+        </p>
+    </div>
+    <div class="uk-card uk-card-secondary uk-card-body" id="step1" uk-height-viewport="expand: true">
+        <span class="uk-card-badge uk-badge">Paso 1</span>
+        <h3 class="uk-card-title">Opciones</h3>
+        <p>Ingresá las opciones que estás evaluando.</p>
+        <div class="uk-margin" id="optionList">
+            <div class="uk-form-controls">
+                <label class="uk-form-label">Opción 1</label>
+                <div class="uk-flex">
+                    <input class="uk-input" type="text" placeholder="Nombre de la opción">
+                </div>
+            </div>
+            <div class="uk-form-controls">
+                <label class="uk-form-label">Opción 2</label>
+                <div class="uk-flex">
+                    <input class="uk-input" type="text" placeholder="Nombre de la opción">
+                </div>
+            </div>
+        </div>
+        <p class="uk-text-danger" id="optionsError" hidden></p>
+        <p uk-margin class="uk-text-right">
+            <button class="uk-button uk-button-default uk-button-small" onclick="addElement('option')">Agregar
+                Opción</button>
+            <button class="uk-button uk-button-danger uk-button-small" onclick="validator('options')">Listo</button>
+        </p>
+    </div>
+    <div class="uk-card uk-card-secondary uk-card-body" id="step2" uk-height-viewport="expand: true">
+        <span class="uk-card-badge uk-badge">Paso 2</span>
+        <h3 class="uk-card-title">Variables</h3>
+        <p>Ingresá las variables que deberías tener en cuenta para tomar esta decisión.</p>
+        <div class="uk-margin" id="varList">
+            <div class="uk-form-controls">
+                <label class="uk-form-label">Variable 1</label>
+                <div class="uk-flex">
+                    <input class="uk-input" type="text" placeholder="Variable">
+                </div>
+            </div>
+        </div>
+        <p class="uk-text-danger" id="varsError" hidden></p>
+        <p uk-margin class="uk-text-right">
+            <button class="uk-button uk-button-default uk-button-small" onclick="addElement('var')">Agregar
+                Variable</button>
+            <button class="uk-button uk-button-danger uk-button-small" onclick="validator('vars')">Listo</button>
+        </p>
+    </div>
+    <div class="uk-card uk-card-secondary uk-card-body" id="step3" uk-height-viewport="expand: true">
+        <span class="uk-card-badge uk-badge">Paso 3</span>
+        <h3 class="uk-card-title">Prioridades</h3>
+        <p>Ordená las variables según la prioridad que creas que deben tener.</p>
+        <div>
+            <h4>Variables</h4>
+            <div uk-sortable="group: sortable-group" id="varPriority">
+            </div>
+        </div>
+        <p uk-margin class="uk-text-right">
+            <button class="uk-button uk-button-danger uk-button-small"
+                onclick="setUpPriority(), makeVisibleStep(4), setValues()">Listo</button>
+        </p>
+    </div>
+    <div class="uk-card uk-card-secondary uk-card-body" id="step4" uk-height-viewport="expand: true">
+        <span class="uk-card-badge uk-badge">Paso 4</span>
+        <h3 class="uk-card-title">Valores</h3>
+        <p>Ordená los valores internos de menor mayor, donde 1 es el peor valor. Hacé esto con cada variable comparando
+            las opciones entre sí.</p>
+        <div class="uk-overflow-auto" id="valuesMatrix">
+
+            <table class="uk-table uk-table-divider">
+                <thead>
+                    <tr id="liOptions">
+                        <th>Variables / Opciones</th>
+                    </tr>
+                </thead>
+                <tbody id="liVars">
+                </tbody>
+            </table>
+        </div>
+        <p uk-margin class="uk-text-right">
+            <button class="uk-button uk-button-danger uk-button-small" onclick="calculate()">Calcular decisión</button>
+        </p>
+    </div>
+
+</body>
+
+</html>
